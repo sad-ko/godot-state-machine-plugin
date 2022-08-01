@@ -1,0 +1,47 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://addons/state_machine/src/base_state.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://addons/state_machine/src/base_state_machine.gd"
+} ]
+_global_script_class_icons={
+"State": "",
+"StateMachine": "res://addons/state_machine/res/state_machine_icon.svg"
+}
+
+[application]
+
+config/name="State Machine"
+run/main_scene="res://demo/demo.tscn"
+config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/state_machine/plugin.cfg" )
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

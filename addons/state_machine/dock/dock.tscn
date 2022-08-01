@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/state_machine/dock/dock.gd" type="Script" id=1]
+
+[node name="StateCreator" type="Control"]
+anchor_top = 0.49
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="StateName" type="LineEdit" parent="."]
+anchor_left = 0.049
+anchor_top = 0.163
+anchor_right = 0.299
+anchor_bottom = 0.268
+margin_left = -0.176003
+margin_top = 0.121998
+margin_right = -0.176025
+margin_bottom = -0.00800323
+placeholder_text = "State Name"
+
+[node name="CreateState" type="Button" parent="."]
+anchor_left = 0.049
+anchor_top = 0.673
+anchor_right = 0.299
+anchor_bottom = 0.882
+margin_left = -0.176003
+margin_top = 0.0619812
+margin_right = -0.176025
+margin_bottom = 0.108002
+disabled = true
+text = "Create State"
+
+[node name="InitialState" type="CheckBox" parent="."]
+anchor_left = 0.049
+anchor_top = 0.356
+anchor_right = 0.049
+anchor_bottom = 0.356
+margin_right = 24.0
+margin_bottom = 24.0
+text = "Set as Initial State"
+
+[node name="TransitionState" type="CheckBox" parent="."]
+visible = false
+anchor_left = 0.341
+anchor_top = 0.758
+anchor_right = 0.341
+anchor_bottom = 0.758
+margin_left = -0.184021
+margin_top = 0.052002
+margin_right = 153.816
+margin_bottom = 24.052
+text = "Is a Transition State"
+
+[node name="AvailableStates" type="ItemList" parent="."]
+anchor_left = 0.341
+anchor_top = 0.163
+anchor_right = 0.591
+anchor_bottom = 0.69
+margin_left = -0.18399
+margin_top = 0.121998
+margin_right = -0.18396
+margin_bottom = -0.140015
+custom_colors/font_color_selected = Color( 0.498039, 1, 0.831373, 1 )
+allow_reselect = true
+allow_rmb_select = true
+
+[connection signal="text_changed" from="StateName" to="." method="_on_StateName_text_changed"]
+[connection signal="pressed" from="CreateState" to="." method="_on_Button_pressed"]
+[connection signal="toggled" from="TransitionState" to="." method="_on_TransitionState_toggled"]
+[connection signal="item_selected" from="AvailableStates" to="." method="_on_AvailableStates_item_selected"]
